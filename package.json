@@ -1,0 +1,99 @@
+{
+	"name": "snippets-snippets",
+	"displayName": "Snippets Snippets",
+	"description": "Snippets Snippets and Syntax Highlighting for VSCodes's JSONC Code Snippets `.code-snippets`",
+	"publisher": "RedCMD",
+	"version": "0.0.1",
+	"engines": {
+		"vscode": "^1.96.0"
+	},
+	"icon": "images/json-dollar.png",
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/RedCMD/snippets-snippets.git"
+	},
+	"bugs": {
+		"url": "https://github.com/RedCMD/snippets-snippets/issues"
+	},
+	"homepage": "https://marketplace.visualstudio.com/items?itemName=RedCMD.snippets-snippets",
+	"keywords": [
+		"snippets snippets",
+		"snippet syntax",
+		"code-snippets"
+	],
+	"categories": [
+		"Programming Languages",
+		"Snippets"
+	],
+	"contributes": {
+		"languages": [
+			{
+				"id": "snippets",
+				"aliases": [
+					"Code Snippets"
+				],
+				"extensions": [
+					".code-snippets"
+				],
+				"filenamePatterns": [
+					"**/User/snippets/*.json",
+					"**/User/profiles/*/snippets/*.json",
+					"**/snippets/*snippets.json"
+				],
+				"icon": {
+					"dark": "./images/json-dollar.svg",
+					"light": "./images/json-dollar.svg"
+				},
+				"configuration": "./language-configuration.json"
+			},
+			{
+				"id": "snippets-snippets",
+				"aliases": [
+					"Snippets Snippets"
+				],
+				"icon": {
+					"dark": "./images/json-dollar.svg",
+					"light": "./images/json-dollar.svg"
+				},
+				"configuration": "./snippets.language-configuration.json"
+			}
+		],
+		"grammars": [
+			{
+				"language": "snippets",
+				"scopeName": "source.json.comments.snippets",
+				"path": "./syntaxes/snippets.tmLanguage.json",
+				"embeddedLanguages": {
+					"meta.embedded.json.comments.snippets.snippets": "snippets-snippets",
+					"meta.embedded.json.textmate.regexp": "json-textmate-regex"
+				}
+			},
+			{
+				"language": "snippets-snippets",
+				"scopeName": "source.json.comments.snippets.snippets",
+				"path": "./syntaxes/snippets-snippets.tmLanguage.json",
+				"embeddedLanguages": {
+					"meta.embedded.json.textmate.regexp": "json-textmate-regex"
+				}
+			}
+		],
+		"snippets": [
+			{
+				"language": "snippets-snippets",
+				"path": "./snippets/snippets.code-snippets"
+			}
+		],
+		"configurationDefaults": {
+			"[snippets-snippets]": {
+				"editor.quickSuggestions": {
+					"other": "on",
+					"comments": "off",
+					"strings": "off"
+				},
+				"editor.suggest.insertMode": "replace",
+				"editor.suggest.showSnippets": true,
+				"editor.snippetSuggestions": "top"
+			}
+		}
+	}
+}

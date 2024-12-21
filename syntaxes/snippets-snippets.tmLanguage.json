@@ -1,0 +1,14 @@
+{
+	"$schema": "https://raw.githubusercontent.com/RedCMD/TmLanguage-Syntax-Highlighter/main/vscode.tmLanguage.schema.json",
+	"name": "JSON Snippets Snippets",
+	"scopeName": "source.json.comments.snippets.snippets",
+	"patterns": [
+		{
+			"begin": "|",
+			"end": "(*FAIL)",
+			"name": "string.quoted.double.json.comments.snippets",
+			"patterns": [ { "include": "source.json.comments.snippets#any" } ]
+		}
+	],
+	"repository": { }
+}

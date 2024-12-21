@@ -1,0 +1,11 @@
+.vscode/**
+.vscode-test/**
+_test_files/**
+.github/**
+.git/**
+node_modules/**
+
+.gitignore
+vsc-extension-quickstart.md
+
+**/Example*.png
