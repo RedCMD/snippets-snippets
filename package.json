@@ -95,5 +95,8 @@
 				"editor.snippetSuggestions": "top"
 			}
 		}
+	},
+	"dependencies": {
+		"vsce": "^2.15.0"
 	}
 }
