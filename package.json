@@ -3,7 +3,7 @@
 	"displayName": "Snippets Snippets",
 	"description": "Snippets Snippets and Syntax Highlighting for VSCodes's JSONC Code Snippets `.code-snippets`",
 	"publisher": "RedCMD",
-	"version": "0.0.3",
+	"version": "0.1.0",
 	"engines": {
 		"vscode": "^1.96.0"
 	},
