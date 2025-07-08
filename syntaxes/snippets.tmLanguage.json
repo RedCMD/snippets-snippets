@@ -202,7 +202,7 @@
 						"1": { "name": "punctuation.definition.regex.begin.json.comments.snippets" },
 						"2": { "name": "constant.character.escape.regex.json.comments.snippets" },
 						"3": {
-							"name": "meta.embedded.json.textmate.regexp",
+							"name": "meta.embedded.json.regexp",
 							"patterns": [
 								{
 									"match": "(\\\\{4})/",

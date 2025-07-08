@@ -45,17 +45,6 @@
 					"light": "./images/json-dollar.svg"
 				},
 				"configuration": "./language-configuration.json"
-			},
-			{
-				"id": "snippets-snippets",
-				"aliases": [
-					"Snippets Snippets"
-				],
-				"icon": {
-					"dark": "./images/json-dollar.svg",
-					"light": "./images/json-dollar.svg"
-				},
-				"configuration": "./snippets.language-configuration.json"
 			}
 		],
 		"grammars": [
@@ -64,27 +53,18 @@
 				"scopeName": "source.json.comments.snippets",
 				"path": "./syntaxes/snippets.tmLanguage.json",
 				"embeddedLanguages": {
-					"meta.embedded.json.comments.snippets.snippets": "snippets-snippets",
-					"meta.embedded.json.textmate.regexp": "json-textmate-regex"
-				}
-			},
-			{
-				"language": "snippets-snippets",
-				"scopeName": "source.json.comments.snippets.snippets",
-				"path": "./syntaxes/snippets-snippets.tmLanguage.json",
-				"embeddedLanguages": {
-					"meta.embedded.json.textmate.regexp": "json-textmate-regex"
+					"meta.embedded.json.regexp": "json-textmate-regex"
 				}
 			}
 		],
 		"snippets": [
 			{
-				"language": "snippets-snippets",
+				"language": "snippets",
 				"path": "./snippets/snippets.code-snippets"
 			}
 		],
 		"configurationDefaults": {
-			"[snippets-snippets]": {
+			"[snippets]": {
 				"editor.quickSuggestions": {
 					"other": "on",
 					"comments": "off",
@@ -92,7 +72,7 @@
 				},
 				"editor.suggest.insertMode": "replace",
 				"editor.suggest.showSnippets": true,
-				"editor.snippetSuggestions": "top"
+				"editor.snippetSuggestions": "bottom"
 			}
 		}
 	}
