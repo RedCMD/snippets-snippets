@@ -110,15 +110,15 @@
 			"patterns": [ { "include": "#any" } ]
 		},
 		"any": {
-			"begin": "(?=(?<any>\\\\{4}++|\\\\{2}[$}]|\\\\.|\\$[0-9]++|\\$[_a-zA-Z0-9]++)|\\${(?>0*+[1-9][0-9]*+\\|(?!,)(?>[^\\\\\",|]++|\\\\{4}++|\\\\{2}[,|]|\\\\.|,(?![,|]))++\\||(?>[0-9]++|[_a-zA-Z0-9]++)(?>:(?>[^\\\\\"$}]++|\\g<any>++|\\$)*+|\\\\?+/(?>[^\\\\\"/]++|\\\\{4,2}/|\\\\{4}++|\\\\[^/])*+(?>(?<=\\\\)\\\\?+/)?+\\\\?+/(?>[^\\\\\"/$]++|\\\\{4}++|\\\\{3,2}/|\\\\[^/]|\\${[0-9]++(?>:/[_a-zA-Z][_a-zA-Z0-9]*+|:(?>\\?(?>[^\\\\\":}]++|\\\\{4}++|\\\\{2}[$}]|\\\\[^\\\\])++:|(?![?/])[+-]?+)(?>[^\\\\\"}]++|\\\\{4}++|\\\\{2}[$}]|\\\\[^\\\\])++)?+}|\\$(?!{[0-9]++:/[^}]))*+\\\\?+/(?>(?<flag>[dgimsvy])(?![dgimsvy]*?\\k<flag+0>))*+)?+)})",
+			"begin": "(?=(?<any>\\\\{4}|\\\\{2}[$}]|\\\\.|\\$[0-9]+|\\$[_a-zA-Z0-9]+|\\${(?>0*[1-9][0-9]*\\|(?!,)(?>[^\\\\\",|]+|\\\\{4}|\\\\{2}[,|]|\\\\.|,(?![,|]))+\\||(?>[0-9]+|[_a-zA-Z0-9]+)(?>:(?>[^\\\\\"$}]+|\\g<any>+|\\$)*|\\\\?/(?>[^\\\\\"/]+|\\\\{2,4}/|\\\\{4}|\\\\[^/])*(?>(?<=\\\\)\\\\?/)?\\\\?/(?>[^\\\\\"/$]+|\\\\{4}|\\\\{2,3}/|\\\\[^/]|\\${[0-9]+(?>:/[_a-zA-Z][_a-zA-Z0-9]*|:(?>\\?(?>[^\\\\\":}]+|\\\\{4}|\\\\{2}[$}]|\\\\[^\\\\])+:|(?![?/])[+-]?)(?>[^\\\\\"}]+|\\\\{4}|\\\\{2}[$}]|\\\\[^\\\\])+)?}|\\$(?!{[0-9]+:/[^}]))*\\\\?/(?>d(?![gimsvy]*d)|g(?![dimsvy]*g)|i(?![dgmsvy]*i)|m(?![dgisvy]*m)|s(?![dgimvy]*s)|v(?![dgimsy]*v)|y(?![dgimsv]*y))*)?)}))",
 			"end": "(?!\\G)",
 			"patterns": [
 				{
-					"match": "(\\\\{2})[$}]",
+					"match": "\\G(\\\\{2})[$}]",
 					"captures": { "1": { "name": "constant.character.escape.json.comments.snippets" } }
 				},
 				{
-					"match": "(\\\\{3})\\\\",
+					"match": "\\G(\\\\{3})\\\\",
 					"captures": { "1": { "name": "constant.character.escape.json.comments.snippets" } }
 				},
 				{ "include": "#stringcontent" },
@@ -129,7 +129,7 @@
 		},
 		"tabstop": {
 			"comment": "$0 $TM_SELECTED_TEXT $_azAZ09",
-			"match": "\\G(\\$)(?>([0-9]++)|((?>TM_(?>SELECTED_TEXT|CURRENT_(?>LINE|WORD)|LINE_(?>INDEX|NUMBER)|FILENAME(?>_BASE)?+|DIRECTORY|FILEPATH)|RELATIVE_FILEPATH|SELECTION|CLIPBOARD|WORKSPACE_(?>NAME|FOLDER)|CURSOR_(?>INDEX|NUMBER)|CURRENT_(?>YEAR(?>_SHORT)?+|MONTH(?>_NAME(?>_SHORT)?+)?+|DATE|DAY_NAME(?>_SHORT)?+|HOUR|MINUTE|SECOND(?>S_UNIX)?+|TIMEZONE_OFFSET)|RANDOM(?>_HEX)?+|UUID|BLOCK_COMMENT_(?>START|END)|LINE_COMMENT)(?![_a-zA-Z0-9]))|([_a-zA-Z0-9]++))",
+			"match": "\\G(\\$)(?>([0-9]+)|((?>TM_(?>SELECTED_TEXT|CURRENT_(?>LINE|WORD)|LINE_(?>INDEX|NUMBER)|FILENAME(?>_BASE)?|DIRECTORY|FILEPATH)|RELATIVE_FILEPATH|SELECTION|CLIPBOARD|WORKSPACE_(?>NAME|FOLDER)|CURSOR_(?>INDEX|NUMBER)|CURRENT_(?>YEAR(?>_SHORT)?|MONTH(?>_NAME(?>_SHORT)?)?|DATE|DAY_NAME(?>_SHORT)?|HOUR|MINUTE|SECOND(?>S_UNIX)?|TIMEZONE_OFFSET)|RANDOM(?>_HEX)?|UUID|BLOCK_COMMENT_(?>START|END)|LINE_COMMENT)(?![_a-zA-Z0-9]))|([_a-zA-Z0-9]+))",
 			"captures": {
 				"0": { "name": "meta.embedded.tabstop.json.comments.snippets" },
 				"1": { "name": "keyword.other.json.comments.snippets punctuation.definition.tabstop.json.comments.snippets" },
@@ -140,8 +140,8 @@
 		},
 		"choice": {
 			"comment": "${1|a,b,c|} ${020|choice,\\,,\\||}",
-			"begin": "\\G(\\${)(0*+[1-9][0-9]*+)(\\|)",
-			"end": "(\\|)(})|$|(?=\")",
+			"begin": "\\G(\\${)(0*[1-9][0-9]*)(\\|)",
+			"end": "(\\|)(})|(?=\")|$",
 			"beginCaptures": {
 				"1": { "name": "keyword.other.json.comments.snippets punctuation.definition.choice.begin.json.comments.snippets" },
 				"2": { "name": "constant.numeric.tabstop.json.comments.snippets" },
@@ -171,8 +171,8 @@
 		},
 		"placeholder": {
 			"comment": "${2} ${variable} ${3:placeholder} ${transform/regex/format/options}",
-			"begin": "\\G(\\${)(?>([0-9]++)|((?>TM_(?>SELECTED_TEXT|CURRENT_(?>LINE|WORD)|LINE_(?>INDEX|NUMBER)|FILENAME(?>_BASE)?+|DIRECTORY|FILEPATH)|RELATIVE_FILEPATH|SELECTION|CLIPBOARD|WORKSPACE_(?>NAME|FOLDER)|CURSOR_(?>INDEX|NUMBER)|CURRENT_(?>YEAR(?>_SHORT)?+|MONTH(?>_NAME(?>_SHORT)?+)?+|DATE|DAY_NAME(?>_SHORT)?+|HOUR|MINUTE|SECOND(?>S_UNIX)?+|TIMEZONE_OFFSET)|RANDOM(?>_HEX)?+|UUID|BLOCK_COMMENT_(?>START|END)|LINE_COMMENT))(?![_a-zA-Z0-9])|([_a-zA-Z0-9]++))",
-			"end": "}|$|(?=\")",
+			"begin": "\\G(\\${)(?>([0-9]+)|((?>TM_(?>SELECTED_TEXT|CURRENT_(?>LINE|WORD)|LINE_(?>INDEX|NUMBER)|FILENAME(?>_BASE)?|DIRECTORY|FILEPATH)|RELATIVE_FILEPATH|SELECTION|CLIPBOARD|WORKSPACE_(?>NAME|FOLDER)|CURSOR_(?>INDEX|NUMBER)|CURRENT_(?>YEAR(?>_SHORT)?|MONTH(?>_NAME(?>_SHORT)?)?|DATE|DAY_NAME(?>_SHORT)?|HOUR|MINUTE|SECOND(?>S_UNIX)?|TIMEZONE_OFFSET)|RANDOM(?>_HEX)?|UUID|BLOCK_COMMENT_(?>START|END)|LINE_COMMENT))(?![_a-zA-Z0-9])|([_a-zA-Z0-9]+))",
+			"end": "}|(?=\")|$",
 			"beginCaptures": {
 				"1": { "name": "keyword.other.json.comments.snippets punctuation.definition.placeholder.begin.json.comments.snippets" },
 				"2": { "name": "constant.numeric.tabstop.json.comments.snippets" },
@@ -185,19 +185,19 @@
 				{
 					"comment": "placeholder",
 					"begin": ":",
-					"end": "(?=}|$|\")",
+					"end": "(?=}|\")|$",
 					"beginCaptures": { "0": { "name": "punctuation.separator.placeholder.json.comments.snippets" } },
 					"contentName": "string.quoted.double.json.comments.snippets",
 					"patterns": [ { "include": "#any" } ]
 				},
 				{
-					"comment": "VSCode TextMate bug. Including a grammar from within a capture group doesn't load the include. We have to pre-load the include outside of the capture group. https://github.com/microsoft/vscode-textmate/issues/242",
+					"comment": "VSCode TextMate bug. Including a grammar from within a capture group doesn't load the grammar. We have to pre-load the grammar outside of the capture group. https://github.com/microsoft/vscode-textmate/issues/242",
 					"include": "source.json.textmate.regexp#_pre-load_"
 				},
 				{
 					"comment": "/regex/format/options",
-					"begin": "((\\\\)?+/)((?>[^\\\\\"/]++|\\\\{4,2}/|\\\\{4}++|\\\\[^/])*+(?>(?<=\\\\)\\\\?+/)?+)((\\\\)?+/)",
-					"end": "((\\\\)?+/)([dgimsvy]*+)",
+					"begin": "((\\\\)?/)((?>[^\\\\\"/]+|\\\\{2,4}/|\\\\{4}|\\\\[^/])*(?>(?<=\\\\)\\\\?/)?)((\\\\)?/)",
+					"end": "((\\\\)?/)([dgimsvy]*)(?=})|(?=\")|$",
 					"beginCaptures": {
 						"1": { "name": "punctuation.definition.regex.begin.json.comments.snippets" },
 						"2": { "name": "constant.character.escape.regex.json.comments.snippets" },
@@ -232,7 +232,7 @@
 					"patterns": [
 						{
 							"comment": "$0 $1 $0009999",
-							"match": "(\\$)([0-9]++)",
+							"match": "(\\$)([0-9]+)",
 							"captures": {
 								"0": { "name": "meta.embedded.capture.json.comments.snippets" },
 								"1": { "name": "keyword.other.json.comments.snippets punctuation.definition.capture.json.comments.snippets" },
@@ -241,7 +241,7 @@
 						},
 						{
 							"comment": "${2} ${3:/downcase} ${4:+if} ${5:?if:else} ${6:-else} ${7:else}",
-							"begin": "(\\${)([0-9]++)(:(?=/[_a-zA-Z][_a-zA-Z0-9]*+}|(?>\\?(?>[^\\\\\":}]++|\\\\{4}++|\\\\{2}[$}]|\\\\[^\\\\])++:|(?![?/])[+-]?+)(?>[^\\\\\"}]++|\\\\{4}++|\\\\{2}[$}]|\\\\[^\\\\])++})|(?=}))",
+							"begin": "(\\${)([0-9]+)(:(?=/[_a-zA-Z][_a-zA-Z0-9]*}|(?>\\?(?>[^\\\\\":}]+|\\\\{4}|\\\\{2}[$}]|\\\\[^\\\\])+:|(?![?/])[+-]?)(?>[^\\\\\"}]+|\\\\{4}|\\\\{2}[$}]|\\\\[^\\\\])+})|(?=}))",
 							"end": "}",
 							"beginCaptures": {
 								"1": { "name": "keyword.other.json.comments.snippets punctuation.definition.format.begin.json.comments.snippets" },
@@ -253,7 +253,7 @@
 							"contentName": "string.quoted.double.json.comments.snippets",
 							"patterns": [
 								{
-									"match": "\\G(\\\\)?(/(?>capitalize|(?>up|down|camel|pascal)case|([^}]++)))(?=})",
+									"match": "\\G(\\\\)?(/(?>capitalize|(?>up|down|camel|pascal)case|([^}]+)))(?=})",
 									"captures": {
 										"1": { "name": "constant.character.escape.format.json.comments.snippets" },
 										"2": { "name": "markup.bold.case.json.comments.snippets" },
@@ -294,7 +294,7 @@
 							]
 						},
 						{
-							"match": "(\\\\{3,2})/",
+							"match": "(\\\\{2,3})/",
 							"captures": { "1": { "name": "constant.character.escape.format.json.comments.snippets" } }
 						},
 						{
@@ -417,7 +417,7 @@
 			"name": "constant.language.json.comments.snippets"
 		},
 		"number": {
-			"match": "-?+(?>0|[1-9][0-9]*+)(?>(?>\\.[0-9]++)?+(?>[eE][+-]?+[0-9]++)?+)?+",
+			"match": "-?(?>0|[1-9][0-9]*)(?>(?>\\.[0-9]+)?(?>[eE][+-]?[0-9]+)?)?",
 			"name": "constant.numeric.json.comments.snippets"
 		},
 		"comments": {
