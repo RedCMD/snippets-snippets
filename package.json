@@ -83,7 +83,7 @@
 		}
 	},
 	"devDependencies": {
-		"vsce": "^2.15.0",
+		"@vscode/vsce": "^3.7.1",
 		"vscode-tmgrammar-test": "^0.1.3"
 	}
 }
