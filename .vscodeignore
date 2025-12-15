@@ -4,6 +4,7 @@ _test_files/**
 .github/**
 .git/**
 node_modules/**
+syntaxes/tests/**
 
 .gitignore
 vsc-extension-quickstart.md
