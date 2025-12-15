@@ -25,6 +25,10 @@
 		"Programming Languages",
 		"Snippets"
 	],
+	"scripts": {
+		"package": "vsce package",
+		"publish": "vsce publish"
+	},
 	"contributes": {
 		"languages": [
 			{
@@ -75,5 +79,8 @@
 				"editor.snippetSuggestions": "bottom"
 			}
 		}
+	},
+	"devDependencies": {
+		"vsce": "^2.15.0"
 	}
 }
