@@ -7,6 +7,8 @@ node_modules/**
 syntaxes/tests/**
 
 .gitignore
+.vsixmanifest
 vsc-extension-quickstart.md
+CHANGELOG.md
 
 **/Example*.png
