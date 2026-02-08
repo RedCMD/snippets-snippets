@@ -410,7 +410,7 @@
 							"contentName": "string.quoted.double.json.comments.snippets",
 							"patterns": [
 								{
-									"match": "\\G(\\\\)?(/(?>capitalize|(?>up|down|camel|pascal)case|([^}]+)))(?=})",
+									"match": "\\G(\\\\)?(/(?>capitalize|(?>up|down|camel|pascal|snake|kebab)case|([^}]+)))(?=})",
 									"captures": {
 										"1": { "name": "constant.character.escape.format.json.comments.snippets" },
 										"2": { "name": "markup.bold.case.json.comments.snippets" },
