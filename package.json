@@ -5,7 +5,7 @@
 	"publisher": "RedCMD",
 	"version": "0.2.2",
 	"engines": {
-		"vscode": "^1.108.0"
+		"vscode": "^1.109.0"
 	},
 	"icon": "images/json-dollar.png",
 	"repository": {
@@ -43,9 +43,10 @@
 					".code-snippets"
 				],
 				"filenamePatterns": [
+					"**/snippets/*snippets*.json",
 					"**/User/snippets/*.json",
 					"**/User/profiles/*/snippets/*.json",
-					"**/snippets/*snippets.json"
+					"**/User/sync/snippets/preview/*.json"
 				],
 				"icon": {
 					"dark": "./images/json-dollar.svg",
@@ -81,7 +82,30 @@
 				"editor.suggest.showSnippets": true,
 				"editor.snippetSuggestions": "bottom"
 			}
-		}
+		},
+		"jsonValidation": [
+			{
+				"fileMatch": [
+					"**/snippets/*snippets*.json",
+					"**/User/snippets/*.json",
+					"**/User/profiles/*/snippets/*.json",
+					"**/User/sync/snippets/preview/*.json",
+					"*.code-snippets",
+					"!**/User/snippets/*.code-snippets",
+					"!**/User/profiles/*/snippets/.code-snippets",
+					"!**/User/sync/snippets/preview/*.code-snippets"
+				],
+				"url": "./vscode.snippets.schema.json"
+			},
+			{
+				"fileMatch": [
+					"**/User/snippets/*.code-snippets",
+					"**/User/profiles/*/snippets/.code-snippets",
+					"**/User/sync/snippets/preview/*.code-snippets"
+				],
+				"url": "./vscode.snippets-global.schema.json"
+			}
+		]
 	},
 	"devDependencies": {
 		"@vscode/vsce": "^3.7.1",

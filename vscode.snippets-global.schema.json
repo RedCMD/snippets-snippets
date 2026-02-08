@@ -1,0 +1,62 @@
+{
+	"$schema": "https://json-schema.org/draft/2020-12/schema",
+	"$id": "https://github.com/RedCMD/snippets-snippets/main/vscode.snippets-global.schema.json",
+	"markdownDescription": "User Global Snippet Configuration | [Schema](https://github.com/RedCMD/snippets-snippets/main/vscode.snippets-global.schema.json)",
+	"type": "object",
+	"properties": { "newSnippet": { "$ref": "#/definitions/snippet" } },
+	"additionalProperties": { "$ref": "#/definitions/snippet" },
+	"definitions": {
+		"snippet": {
+			"description": "A snippet definition.",
+			"type": "object",
+			"properties": {
+				"scope": { "$ref": "#/definitions/scope" },
+				"prefix": { "$ref": "./vscode.snippets.schema.json#/definitions/prefix" },
+				"body": { "$ref": "./vscode.snippets.schema.json#/definitions/body" },
+				"description": { "$ref": "./vscode.snippets.schema.json#/definitions/description" },
+				"isFileTemplate": { "$ref": "./vscode.snippets.schema.json#/definitions/isFileTemplate" },
+				"include": { "$ref": "./vscode.snippets.schema.json#/definitions/include" },
+				"exclude": { "$ref": "./vscode.snippets.schema.json#/definitions/exclude" }
+			},
+			"additionalProperties": false,
+			"required": [ "body" ],
+			"defaultSnippets": [
+				{
+					"label": "A New Global Snippet",
+					"description": "Creates a new snippet in a Global .code-snippets file",
+					"body": {
+						"scope": "${1:languageId}",
+						"prefix": "${2:${TM_SELECTED_TEXT:prefix}}",
+						"body": "${3:snippet}",
+						"description": "${4:Description}"
+					}
+				}
+			]
+		},
+		"scope": {
+			"description": "A list of language ids to which this snippet applies, separated by a comma. E.g. \"javascript,typescript\".",
+			"type": "string",
+			"defaultSnippets": [
+				{
+					"label": "Language Ids",
+					"description": "Must be the languageId, not the language display name",
+					"body": "${1:${TM_SELECTED_TEXT:javascript}},${2:typescript}"
+				}
+			]
+		}
+	},
+	"defaultSnippets": [
+		{
+			"label": "A New Global Snippet File",
+			"description": "Creates a new snippet in an empty Global .code-snippets file",
+			"body": {
+				"${1:${TM_SELECTED_TEXT:Snippet Name}}": {
+					"scope": "${2:languageId}",
+					"prefix": "${3:prefix}",
+					"body": "${4:snippet}",
+					"description": "${5:Description}"
+				}
+			}
+		}
+	]
+}

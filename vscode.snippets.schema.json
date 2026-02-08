@@ -1,0 +1,204 @@
+{
+	"$schema": "https://json-schema.org/draft/2020-12/schema",
+	"$id": "https://github.com/RedCMD/snippets-snippets/main/vscode.snippets.schema.json",
+	"markdownDescription": "User Snippet Configuration | [Schema](https://github.com/RedCMD/snippets-snippets/main/vscode.snippets.schema.json)",
+	"type": "object",
+	"properties": { "newSnippet": { "$ref": "#/definitions/snippet" } },
+	"additionalProperties": { "$ref": "#/definitions/snippet" },
+	"definitions": {
+		"snippet": {
+			"description": "A snippet definition.",
+			"type": "object",
+			"properties": {
+				"prefix": { "$ref": "#/definitions/prefix" },
+				"body": { "$ref": "#/definitions/body" },
+				"description": { "$ref": "#/definitions/description" },
+				"isFileTemplate": { "$ref": "#/definitions/isFileTemplate" },
+				"include": { "$ref": "#/definitions/include" },
+				"exclude": { "$ref": "#/definitions/exclude" }
+			},
+			"additionalProperties": false,
+			"required": [ "body" ],
+			"defaultSnippets": [
+				{
+					"label": "A New Snippet",
+					"description": "Creates a new snippet in a User snippets file",
+					"body": {
+						"prefix": "${1:${TM_SELECTED_TEXT:prefix}}",
+						"body": "${2:snippet}",
+						"description": "${3:Description}"
+					}
+				}
+			]
+		},
+		"prefix": {
+			"description": "The prefix to use when selecting the snippet in intellisense",
+			"type": [
+				"array",
+				"string"
+			],
+			"items": {
+				"type": "string",
+				"defaultSnippets": [
+					{
+						"label": "Prefix",
+						"body": "${1:${TM_SELECTED_TEXT:prefix}}"
+					}
+				]
+			},
+			"defaultSnippets": [
+				{
+					"label": "Prefix",
+					"body": "${1:${TM_SELECTED_TEXT:prefix}}"
+				},
+				{
+					"label": "Array of individual Prefixes",
+					"body": [
+						"${1:${TM_SELECTED_TEXT:prefix1}}",
+						"${2:prefix2}"
+					]
+				}
+			]
+		},
+		"body": {
+			"markdownDescription": "The snippet content. Use `$1`, `${1:defaultText}` to define cursor positions, use `$0` for the final cursor position. Insert variable values with `${varName}` and `${varName:defaultText}`, e.g. `This is file: $TM_FILENAME`.",
+			"description": "The snippet content. Use $1, ${1:defaultText} to define cursor positions, use $0 for the final cursor position. Insert variable values with ${varName} and ${varName:defaultText}, e.g. This is file: $TM_FILENAME.",
+			"type": [
+				"array",
+				"string"
+			],
+			"items": {
+				"type": "string",
+				"defaultSnippets": [
+					{
+						"label": "Snippet",
+						"description": "Automatically adds newlines between strings",
+						"body": "${1:${TM_SELECTED_TEXT:snippet}}"
+					}
+				]
+			},
+			"defaultSnippets": [
+				{
+					"label": "Snippet",
+					"body": "${1:${TM_SELECTED_TEXT:snippet}}"
+				},
+				{
+					"label": "Multiline Snippet",
+					"description": "Automatically adds newlines between strings",
+					"body": [
+						"${1:${TM_SELECTED_TEXT:snippet}}",
+						"$2"
+					]
+				}
+			]
+		},
+		"description": {
+			"description": "The snippet description.",
+			"type": [
+				"array",
+				"string"
+			],
+			"items": {
+				"type": "string",
+				"defaultSnippets": [
+					{
+						"label": "Description",
+						"body": "${1:${TM_SELECTED_TEXT:description}}"
+					}
+				]
+			},
+			"defaultSnippets": [
+				{
+					"label": "Description",
+					"body": "${1:${TM_SELECTED_TEXT:description}}"
+				},
+				{
+					"label": "Multiline Description",
+					"description": "Automatically adds newlines between strings. Disables Word-Wrapping",
+					"body": [
+						"${1:${TM_SELECTED_TEXT:description}}",
+						"$2"
+					]
+				}
+			]
+		},
+		"isFileTemplate": {
+			"description": "The snippet is meant to populate or replace a whole file",
+			"type": "boolean",
+			"default": true
+		},
+		"include": {
+			"markdownDescription": "A list of glob patterns to include the snippet for specific files, e.g. `[\"**/*.test.ts\", \"*.spec.ts\"]` or `\"**/*.spec.ts\"`.",
+			"description": "A list of glob patterns to include the snippet for specific files, e.g. [\"**/*.test.ts\", \"*.spec.ts\"] or \"**/*.spec.ts\"",
+			"type": [
+				"string",
+				"array"
+			],
+			"items": {
+				"type": "string",
+				"defaultSnippets": [
+					{
+						"label": "Glob",
+						"body": "${1:${TM_SELECTED_TEXT:**/*.test.ts}}"
+					}
+				]
+			},
+			"defaultSnippets": [
+				{
+					"label": "Glob",
+					"body": "${1:${TM_SELECTED_TEXT:**/*.test.ts}}"
+				},
+				{
+					"label": "Array of Globs",
+					"body": [
+						"${1:${TM_SELECTED_TEXT:**/*.test.ts}}",
+						"${2:*.spec.ts}"
+					]
+				}
+			]
+		},
+		"exclude": {
+			"markdownDescription": "A list of glob patterns to exclude the snippet from specific files, e.g. `[\"**/*.min.js\"]` or `\"*.min.js\"`.",
+			"description": "A list of glob patterns to exclude the snippet from specific files, e.g. [\"**/*.min.js\"] or \"*.min.js\"",
+			"type": [
+				"string",
+				"array"
+			],
+			"items": {
+				"type": "string",
+				"defaultSnippets": [
+					{
+						"label": "Glob",
+						"body": "${1:${TM_SELECTED_TEXT:*.min.js}}"
+					}
+				]
+			},
+			"defaultSnippets": [
+				{
+					"label": "Glob",
+					"body": "${1:${TM_SELECTED_TEXT:*.min.js}}"
+				},
+				{
+					"label": "Array of Globs",
+					"body": [
+						"${1:${TM_SELECTED_TEXT:*.min.js}}",
+						"${2:**/temp/*.js}"
+					]
+				}
+			]
+		}
+	},
+	"defaultSnippets": [
+		{
+			"label": "A New Snippet File",
+			"description": "Creates a new snippet in an empty User snippets file",
+			"body": {
+				"${1:${TM_SELECTED_TEXT:Snippet Name}}": {
+					"prefix": "${2:prefix}",
+					"body": "${3:snippet}",
+					"description": "${4:Description}"
+				}
+			}
+		}
+	]
+}

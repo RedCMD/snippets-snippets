@@ -1,5 +1,38 @@
 // https://code.visualstudio.com/docs/editor/userdefinedsnippets#_snippet-syntax
 {
+	"New Snippet": {
+		"prefix": "newSnippet",
+		"body": [
+			"\"${1:${TM_SELECTED_TEXT:Snippet Name}}\": {",
+			"\t\"prefix\": \"${2:prefix}\",",
+			"\t\"body\": \"${3:snippet}\",",
+			"\t\"description\": \"${4:Description}\",",
+			"},$0",
+		],
+		"description": "Creates a new snippet in a snippets.json file",
+		"exclude": [
+			"**/User/snippets/*.code-snippets",
+			"**/User/profiles/*/snippets/.code-snippets",
+			"**/User/sync/snippets/preview/*.code-snippets"
+		]
+	},
+	"New Global Snippet": {
+		"prefix": "newSnippet",
+		"body": [
+			"\"${1:${TM_SELECTED_TEXT:Snippet Name}}\": {",
+			"\t\"scope\": \"${2:languageId}\",",
+			"\t\"prefix\": \"${3:prefix}\",",
+			"\t\"body\": \"${4:snippet}\",",
+			"\t\"description\": \"${5:Description}\",",
+			"},$0",
+		],
+		"description": "Creates a new snippet in a .code-snippets file",
+		"include": [
+			"**/User/snippets/*.code-snippets",
+			"**/User/profiles/*/snippets/.code-snippets",
+			"**/User/sync/snippets/preview/*.code-snippets"
+		]
+	},
 	"Tabstops": {
 		"prefix": "$tabstop",
 		"body": "$${1|0,1,2,3,4,5,6,7,8,9|}",

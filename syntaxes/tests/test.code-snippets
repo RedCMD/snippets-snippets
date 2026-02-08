@@ -121,10 +121,23 @@
 		],
 	},
 	"body": {
-		"body": "body$0",
-		"description": "body",
-		"isFileTemplate": true,
+		"scope": "body",
 		"prefix": "body",
-		"scope": "body"
+		"body": "body",
+		"description": "body",
+		"isFileTemplate": "body",
+		"include": "body",
+		"exclude": [
+			"body"
+		],
+	},
+	"label": {
+		"scope": "scope",
+		"prefix": "prefix",
+		"body": "body",
+		"description": "description",
+		"isFileTemplate": true,
+		"exclude": "exclude",
+		"include": "include",
 	},
 }
