@@ -103,6 +103,22 @@
 			"${TM_FILENAME_BASE/(.*)/${1:/kebabcase}/}",
 			"${TM_FILENAME/(.*)/${1:/snakecase}/}"
 		],
+		"include": [
+			"**/travis.yml",
+			"**/.travis.yml",
+			"*.test.ts",
+			"*.spec.ts",
+			"**/*.test.ts",
+			"*.test.ts",
+			"**/User/snippets/*.code-snippets",
+			"**/User/profiles/*/snippets/.code-snippets",
+			"**/User/sync/snippets/preview/*.code-snippets"
+		],
+		"exclude": [
+			"**/*.min.js",
+			"**/dist/**",
+			"**/*.perf.test.ts"
+		],
 	},
 	"body": {
 		"body": "body$0",
