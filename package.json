@@ -28,7 +28,7 @@
 	"scripts": {
 		"package": "vsce package",
 		"publish": "vsce publish",
-		"test": "vscode-tmgrammar-snap ./syntaxes/tests/*.code-snippets",
+		"test": "textmate-grammar-snap ./syntaxes/tests/*.code-snippets",
 		"test:update": "npm run test -- --updateSnapshot"
 	},
 	"contributes": {
@@ -84,6 +84,6 @@
 	},
 	"devDependencies": {
 		"@vscode/vsce": "^3.7.1",
-		"vscode-tmgrammar-test": "^0.1.3"
+		"textmate-grammar-test": "^0.4.2"
 	}
 }
