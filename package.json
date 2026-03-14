@@ -43,7 +43,7 @@
 					".code-snippets"
 				],
 				"filenamePatterns": [
-					"**/snippets/*snippets*.json",
+					"**/snippets/*.json",
 					"**/User/snippets/*.json",
 					"**/User/profiles/*/snippets/*.json",
 					"**/User/sync/snippets/preview/*.json"
@@ -86,13 +86,13 @@
 		"jsonValidation": [
 			{
 				"fileMatch": [
-					"**/snippets/*snippets*.json",
+					"**/snippets/*.json",
 					"**/User/snippets/*.json",
 					"**/User/profiles/*/snippets/*.json",
 					"**/User/sync/snippets/preview/*.json",
 					"*.code-snippets",
 					"!**/User/snippets/*.code-snippets",
-					"!**/User/profiles/*/snippets/.code-snippets",
+					"!**/User/profiles/*/snippets/*.code-snippets",
 					"!**/User/sync/snippets/preview/*.code-snippets"
 				],
 				"url": "./vscode.snippets.schema.json"
@@ -100,7 +100,7 @@
 			{
 				"fileMatch": [
 					"**/User/snippets/*.code-snippets",
-					"**/User/profiles/*/snippets/.code-snippets",
+					"**/User/profiles/*/snippets/*.code-snippets",
 					"**/User/sync/snippets/preview/*.code-snippets"
 				],
 				"url": "./vscode.snippets-global.schema.json"
