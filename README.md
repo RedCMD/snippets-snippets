@@ -18,6 +18,6 @@ Beyond that may result in false positives.
 
 * VSCode docs [Snippet Syntax](https://code.visualstudio.com/docs/editor/userdefinedsnippets#_snippet-syntax)
 * Jeff Hykin's [better-snippet-syntax](https://github.com/jeff-hykin/better-snippet-syntax)
-* VSCode Feature Request [Snippets Snippets #236674](https://github.com/microsoft/vscode/issues/236674)
+* VSCode Feature Request [Snippets Snippets](https://github.com/microsoft/vscode/issues/236674)
 * [Repository](https://github.com/RedCMD/snippets-snippets)
 * [Marketplace](https://marketplace.visualstudio.com/items?itemName=RedCMD.snippets-snippets)
