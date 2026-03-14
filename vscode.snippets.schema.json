@@ -1,6 +1,8 @@
 {
 	"$schema": "https://json-schema.org/draft/2020-12/schema",
 	"$id": "https://github.com/RedCMD/snippets-snippets/main/vscode.snippets.schema.json",
+	"allowComments": true,
+	"allowTrailingCommas": true,
 	"markdownDescription": "User Snippet Configuration | [Schema](https://github.com/RedCMD/snippets-snippets/main/vscode.snippets.schema.json)",
 	"type": "object",
 	"properties": { "newSnippet": { "$ref": "#/definitions/snippet" } },
