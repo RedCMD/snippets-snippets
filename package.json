@@ -61,7 +61,7 @@
 				"scopeName": "source.json.comments.snippets",
 				"path": "./syntaxes/snippets.tmLanguage.json",
 				"embeddedLanguages": {
-					"meta.embedded.json.regexp": "json-textmate-regex"
+					"meta.embedded.json.regexp": "javascript"
 				}
 			}
 		],
